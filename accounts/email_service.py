@@ -1,18 +1,16 @@
 import requests
 
 
-SERVERLESS_URL = "http://localhost:3000/dev/send-email"
-
-
 def send_email(recipient, subject, message):
 
-    payload = {
+    url = "http://localhost:3000/dev/send-email"
+
+    data = {
         "recipient": recipient,
         "subject": subject,
         "message": message
     }
 
-    requests.post(
-        SERVERLESS_URL,
-        json=payload
-    )
+    response = requests.post(url, json=data)
+
+    return response.json()

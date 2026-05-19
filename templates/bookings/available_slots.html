@@ -21,9 +21,15 @@
         {{ slot.end_time }}
     </p>
 
-    <a href="/bookings/book/{{ slot.id }}/">
-        Book Slot
-    </a>
+    <form method="POST" action="/bookings/book/{{ slot.id }}/">
+
+        {% csrf_token %}
+
+        <button type="submit">
+            Book Slot
+        </button>
+
+    </form>
 
 </div>
 

@@ -358,6 +358,26 @@ This is safer and more reliable for concurrent booking systems.
 
 ---
 
+# Future Improvements
+
+- Multi-user Google Calendar synchronization for both doctors and patients
+- Real-time notifications using WebSockets
+- Video consultation integration
+- Payment gateway integration for appointment fees
+- Doctor profile management with specialization and experience
+- Appointment cancellation and rescheduling
+- SMS notifications using Twilio
+- Admin analytics dashboard
+- JWT authentication for API security
+- Docker containerization and cloud deployment
+- AI-based appointment recommendation system
+- Medical report upload and management
+- Role-based permission enhancements
+- Appointment approval workflow with pending/rejected states
+- Email reminders before appointments
+
+---
+
 # AI Tool Usage
 
 AI tools were used during development for:
@@ -368,6 +388,12 @@ AI tools were used during development for:
 - Debugging support
 
 AI-generated suggestions were manually reviewed, tested, and modified during implementation.
+
+<!-- Note  -->
+Current implementation creates Google Calendar events
+through authenticated HMS calendar integration.
+Architecture supports extension to multi-user OAuth
+for doctor/patient-specific calendar synchronization.
 
 ---
 

@@ -1,22 +1,35 @@
 from django.db import models
-from django.conf import settings
 
+from accounts.models import User
 from doctors.models import AvailabilitySlot
 
 
 class Booking(models.Model):
 
+    STATUS_CHOICES = (
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    )
+
     patient = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        User,
         on_delete=models.CASCADE
     )
 
-    slot = models.OneToOneField(
+    slot = models.ForeignKey(
         AvailabilitySlot,
         on_delete=models.CASCADE
     )
 
-    booked_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='pending'
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.patient.username} booked {self.slot}"
+
+        return f"{self.patient.username} - {self.slot}"

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pending Requests</title>
+</head>
+<body>
+
+<h1>Pending Appointment Requests</h1>
+
+{% for booking in bookings %}
+
+<div>
+
+    <p>
+        Patient: {{ booking.patient.username }}
+    </p>
+
+    <p>
+        Date: {{ booking.slot.date }}
+    </p>
+
+    <p>
+        Time:
+        {{ booking.slot.start_time }}
+        -
+        {{ booking.slot.end_time }}
+    </p>
+
+    <a href="/bookings/approve-booking/{{ booking.id }}/">
+        Approve
+    </a>
+
+    <a href="/bookings/reject-booking/{{ booking.id }}/">
+        Reject
+    </a>
+
+</div>
+
+<hr>
+
+{% empty %}
+
+<p>No pending requests.</p>
+
+{% endfor %}
+
+</body>
+</html>
