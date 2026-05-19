@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Bookings</title>
+</head>
+<body>
+
+<h1>My Bookings</h1>
+
+{% for booking in bookings %}
+
+<div>
+
+    <p>
+        Doctor:
+        Dr. {{ booking.slot.doctor.username }}
+    </p>
+
+    <p>
+        Date:
+        {{ booking.slot.date }}
+    </p>
+
+    <p>
+        Time:
+        {{ booking.slot.start_time }}
+        -
+        {{ booking.slot.end_time }}
+    </p>
+
+</div>
+
+<hr>
+
+{% empty %}
+
+<p>No bookings yet.</p>
+
+{% endfor %}
+
+</body>
+</html>

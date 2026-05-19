@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Slots</title>
+</head>
+<body>
+
+<h1>My Availability Slots</h1>
+
+<a href="/doctors/create-slot/">
+    Create New Slot
+</a>
+
+<br><br>
+
+{% for slot in slots %}
+
+<div>
+
+    <p>
+        {{ slot.date }}
+        |
+        {{ slot.start_time }}
+        -
+        {{ slot.end_time }}
+    </p>
+
+    <p>
+        Booked:
+        {{ slot.is_booked }}
+    </p>
+
+    <a href="/doctors/delete-slot/{{ slot.id }}/">
+        Delete
+    </a>
+
+</div>
+
+<hr>
+
+{% empty %}
+
+<p>No slots created yet.</p>
+
+{% endfor %}
+
+</body>
+</html>

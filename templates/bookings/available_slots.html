@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Slots</title>
+</head>
+<body>
+
+<h1>Available Slots</h1>
+
+<h2>Dr. {{ doctor.username }}</h2>
+
+{% for slot in slots %}
+
+<div>
+
+    <p>
+        {{ slot.date }}
+        |
+        {{ slot.start_time }}
+        -
+        {{ slot.end_time }}
+    </p>
+
+    <a href="/bookings/book/{{ slot.id }}/">
+        Book Slot
+    </a>
+
+</div>
+
+<hr>
+
+{% empty %}
+
+<p>No available slots.</p>
+
+{% endfor %}
+
+</body>
+</html>
